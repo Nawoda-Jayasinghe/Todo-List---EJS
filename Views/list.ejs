@@ -1,0 +1,47 @@
+<%- include("header") -%>
+
+    <div class="box" id="heading">
+        <h1>
+            <%= listTitle %>
+        </h1>
+    </div>
+
+    <div class="box">
+
+        <!-- <li>One</li>
+        <li>two</li>
+        <li>three</li>
+        <li> <%= kindOfItems %></li>  -->
+        <!-- but here the items are being replaced -->
+        <!-- but now all the details are listed under a same bullet point -->
+        <!-- we have to create new list items for each list. so we need a for loop -->
+
+        <% for(let i=0;i< kindOfItems.length ; i++){ %>
+            <div class="item">
+                <input type="checkbox" >
+                <p>
+                    <%=kindOfItems[i] %>
+                </p>
+            </div>
+            <% } %>
+
+    
+
+
+    <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value=<%=listTitle%>>+</button>
+    </form>
+</div>
+
+
+
+    <!-- <% if (listTitle ==="Thursday"){ %>
+    <h1 style="color:purple"> <%= listTitle %> list</h1>
+<% } else { %>
+    <h1 style="color:red"> <%= listTitle %> list</h1>
+<% } %> -->
+
+    <!-- <h1> It is a <%= listTitle %> </h1> -->
+
+    <%- include("footer") -%>
