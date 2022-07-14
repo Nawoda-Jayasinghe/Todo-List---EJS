@@ -16,21 +16,29 @@
         <!-- but now all the details are listed under a same bullet point -->
         <!-- we have to create new list items for each list. so we need a for loop -->
 
-        <% for(let i=0;i< kindOfItems.length ; i++){ %>
-            <div class="item">
-                <input type="checkbox" >
-                <p>
-                    <%=kindOfItems[i] %>
-                </p>
-            </div>
-            <% } %>
+   
+
+           
+
+            <% for(let i=0;i< kindOfItems.length ; i++){ %>
+
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="checkbox" onchange="this.form.submit()"  name="checkbox" value="<%= kindOfItems[i]._id %>">
+                        <p>
+                            <%=kindOfItems[i].name %>
+                        </p>
+                    </div>
+                    <input type="hidden" name="listName" value="<%= listTitle %>" />
+                </form>
+                <% } %>
 
     
 
 
     <form class="item" action="/" method="post">
         <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-        <button type="submit" name="list" value=<%=listTitle%>>+</button>
+        <button type="submit" name="list" value="<%=listTitle%>">+</button>
     </form>
 </div>
 
@@ -44,4 +52,4 @@
 
     <!-- <h1> It is a <%= listTitle %> </h1> -->
 
-    <%- include("footer") -%>
+    <%- include("footer") -%> 
